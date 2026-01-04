@@ -4,57 +4,82 @@ import { motion } from "framer-motion";
 import { profile } from "@/lib/data";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
+
 export default function Hero() {
   return (
     <section id="hero" className="relative flex min-h-[60vh] items-center pt-24">
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
+        variants={container}
+        initial="hidden"
+        animate="show"
         className="flex w-full flex-col gap-6"
       >
-        <div>
-          <h1 className="text-3xl font-semibold text-zinc-900 dark:text-zinc-100">
+        <motion.div variants={item}>
+          <h1 className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 bg-clip-text text-4xl font-bold text-transparent dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100">
             {profile.name}
           </h1>
-          <p className="mt-1 text-zinc-600 dark:text-zinc-400">{profile.role}</p>
-        </div>
+          <p className="mt-2 text-lg text-zinc-600 dark:text-zinc-400">{profile.role}</p>
+        </motion.div>
 
-        <p className="max-w-2xl text-zinc-700 dark:text-zinc-300">{profile.bio}</p>
+        <motion.p variants={item} className="max-w-2xl text-zinc-700 dark:text-zinc-300">
+          {profile.bio}
+        </motion.p>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <a
+        <motion.div variants={item} className="flex flex-wrap items-center gap-3">
+          <motion.a
             href={profile.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-800 transition-colors hover:border-indigo-500 hover:text-indigo-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm transition-all hover:border-indigo-500 hover:text-indigo-600 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
           >
             <Linkedin className="h-4 w-4" /> LinkedIn
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href={profile.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-800 transition-colors hover:border-indigo-500 hover:text-indigo-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm transition-all hover:border-indigo-500 hover:text-indigo-600 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
           >
             <Github className="h-4 w-4" /> GitHub
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href={`mailto:${profile.links.email}`}
-            className="inline-flex items-center gap-2 rounded-md border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-800 transition-colors hover:border-indigo-500 hover:text-indigo-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm transition-all hover:border-indigo-500 hover:text-indigo-600 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
           >
             <Mail className="h-4 w-4" /> Email
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href={profile.links.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-700 px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:shadow-lg dark:from-indigo-500 dark:to-indigo-600"
           >
             <FileText className="h-4 w-4" /> Resume
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </motion.div>
     </section>
   );
