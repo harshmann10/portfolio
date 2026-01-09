@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 
+import { profile } from "@/lib/data";
+
 const navItems = [
   { href: "#hero", label: "Home" },
   { href: "#experience", label: "Experience" },
@@ -38,7 +40,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <a
-            href="https://drive.google.com/drive/folders/placeholder"
+            href={profile.links.resume}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-lg border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-800 shadow-sm transition-all hover:border-indigo-500 hover:text-indigo-600 hover:shadow-md dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"

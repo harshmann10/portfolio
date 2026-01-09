@@ -7,8 +7,10 @@ export default function Experience() {
   return (
     <section id="experience" className="scroll-mt-24 py-16">
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">Experience</h2>
-        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Timeline of roles and impact</p>
+        <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Professional Experience</h2>
+        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+          A chronicle of my journey in software engineering, from architectural design at scale to foundational web development.
+        </p>
       </div>
 
       <div className="relative">

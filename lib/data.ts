@@ -35,12 +35,12 @@ export const profile: Profile = {
   name: "Harsh Mann",
   role: "Full Stack Developer (MERN)",
   bio:
-    "Hi, I'm Harsh Mann. I build scalable web applications with the MERN stack, bridging complex backend logic with clean, user-centric UIs.",
+    "I am a Full Stack Developer (MERN) with a passion for building scalable, high-performance web applications. Currently at Design Avenue, I've engineered complex GRC and HRMS solutions, focusing on robust REST APIs and RAG features. From real-time platforms like DevTinder to feature-rich content systems, I combine efficient backend logic with clean, modern UI/UX to create seamless digital products.",
   links: {
     linkedin: "https://www.linkedin.com/in/harsh-mann01/",
     github: "https://github.com/harshmann10",
     email: "Eharshmann8008@gmail.com",
-    resume: "https://drive.google.com/drive/folders/placeholder",
+    resume: "/resume.pdf",
   },
 };
 
@@ -50,25 +50,30 @@ export const experience: ExperienceItem[] = [
     company: "Design Avenue",
     period: "July 2025 - Present",
     highlights: [
-      "Developed modules for ChemDoc and HRMS. Built reusable UI components and secure REST APIs using React, Node.js, Express, and MongoDB.",
-      "Enhanced a GRC platform with role-based access control (RBAC), workflow automation, and RAG features.",
+      "Architecting and scaling core modules for ChemDoc and HRMS using the MERN stack.",
+      "Developing high-performance, secure REST APIs and reusable frontend components with React.js and Tailwind CSS.",
+      "Engineered a comprehensive GRC platform integrated with Role-Based Access Control (RBAC) and automated workflows.",
+      "Implementing Retrieval-Augmented Generation (RAG) features to enhance platform intelligence and data retrieval.",
     ],
   },
   {
     title: "Java Developer Intern",
     company: "Codsoft",
-    period: "2023",
+    period: "Sep 2023 - Oct 2023",
     highlights: [
-      "Designed robust Java applications including a student-grade calculator and ATM interface.",
-      "Focus on core Java concepts and problem-solving.",
+      "Successfully designed and developed robust Java projects including a student-grade calculator and an ATM Interface.",
+      "Demonstrated proficiency in core Java concepts, object-oriented programming, and complex problem-solving.",
+      "Applied critical thinking to create practical solutions for real-world challenges, improving overall analytical abilities.",
     ],
   },
   {
     title: "Web Developer Intern",
     company: "The Spark Foundation",
-    period: "2022",
+    period: "Nov 2022 - Dec 2022",
     highlights: [
-      "Designed and deployed multiple web applications including a personal portfolio and homepage using HTML, CSS, and JS.",
+      "Designed, built, and deployed multiple engaging web experiences, including a personal portfolio and a redesigned homepage.",
+      "Demonstrated proficiency in modern web standards including HTML5, CSS3, and JavaScript.",
+      "Implemented innovative design solutions to enhance website aesthetics and usability, resulting in more modern and user-friendly platforms.",
     ],
   },
 ];
@@ -83,25 +88,28 @@ export const projects: ProjectItem[] = [
       "MongoDB",
       "Socket.io",
       "Razorpay",
+      "Express.js",
+      "Tailwind CSS",
+      "DaisyUI",
     ],
     description:
-      "A platform for developers to match and collaborate. Features real-time chat (Socket.io) and secure payments (Razorpay).",
+      "A sophisticated full-stack developer matching platform featuring real-time communication via Socket.io and a secure payment ecosystem integrated with Razorpay. Implements complex state management and responsive design.",
     github: "https://github.com/harshmann10/DevTinder-frontend",
     live: "https://devtinder01.vercel.app/",
   },
   {
     name: "Pixel Blog",
-    tech: ["React.js", "Appwrite", "TinyMCE", "Redux"],
+    tech: ["React.js", "Appwrite", "TinyMCE", "Redux Toolkit", "Tailwind CSS"],
     description:
-      "A feature-rich blogging app with authentication, rich-text editing, and CRUD capabilities powered by Appwrite.",
+      "A high-performance blogging engine leveraging Appwrite as a backend-as-a-service. Features a custom rich-text editor integration (TinyMCE), secure user authentication, and dynamic media handling.",
     github: "https://github.com/harshmann10/PixelBlog",
     live: "https://pixel-blog-puce.vercel.app/",
   },
   {
     name: "Web Music Player",
-    tech: ["HTML", "CSS", "Vanilla JavaScript"],
+    tech: ["HTML", "CSS", "JavaScript"],
     description:
-      "An interactive audio player with playlists, shuffle/repeat logic, and dynamic DOM manipulation.",
+      "A custom-built audio streaming interface focused on advanced DOM manipulation and state synchronization. Features dynamic playlist management, intuitive keyboard controls, and responsive UI feedback.",
     github: "https://github.com/harshmann10/music-player",
     live: "https://freemusic1.netlify.app/",
   },
@@ -116,6 +124,8 @@ export const skills: Skills = {
     "Express.js",
     "Tailwind CSS",
     "Redux Toolkit",
+    "DaisyUI",
+    "Socket.io",
   ],
-  tools: ["MongoDB", "MySQL", "Git/GitHub", "VS Code"],
+  tools: ["MongoDB", "MySQL", "Git/GitHub", "VS Code", "Appwrite", "Razorpay"],
 };

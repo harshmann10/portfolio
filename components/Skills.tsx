@@ -27,8 +27,10 @@ export default function Skills() {
   return (
     <section id="skills" className="scroll-mt-24 py-16">
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">Skills</h2>
-        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Core stack and tools</p>
+        <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Technical Expertise</h2>
+        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+          A curated collection of technologies and tools I leverage to build modern, scalable, and user-centric digital solutions.
+        </p>
       </div>
       <div className="grid gap-6 sm:grid-cols-2">
         <motion.div
