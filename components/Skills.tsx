@@ -25,10 +25,10 @@ const skillVariants = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="scroll-mt-24 py-16">
+    <section id="skills" className="scroll-mt-24 py-12 md:py-24">
       <div className="mb-8">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Technical Expertise</h2>
-        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
           A curated collection of technologies and tools I leverage to build modern, scalable, and user-centric digital solutions.
         </p>
       </div>
@@ -39,7 +39,7 @@ export default function Skills() {
           viewport={{ once: true, amount: 0.2 }}
           variants={cardVariants}
           transition={{ duration: 0.5 }}
-          className="rounded-xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-50 p-5 shadow-sm dark:border-zinc-800 dark:from-zinc-950 dark:to-zinc-900"
+          className="rounded-xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-50 p-4 shadow-sm sm:p-5 dark:border-zinc-800 dark:from-zinc-950 dark:to-zinc-900"
         >
           <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Languages</h3>
           <motion.div

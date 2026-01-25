@@ -22,7 +22,7 @@ const item = {
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative flex min-h-[60vh] items-center pt-24">
+    <section id="hero" className="relative flex min-h-[60vh] items-center pt-24 pb-12 md:pt-32 md:pb-24">
       <motion.div
         variants={container}
         initial="hidden"
@@ -30,13 +30,13 @@ export default function Hero() {
         className="flex w-full flex-col gap-6"
       >
         <motion.div variants={item}>
-          <h1 className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 bg-clip-text text-4xl font-bold text-transparent dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100">
+          <h1 className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100 md:text-5xl">
             {profile.name}
           </h1>
-          <p className="mt-2 text-lg text-zinc-600 dark:text-zinc-400">{profile.role}</p>
+          <p className="mt-2 text-base text-zinc-600 sm:text-lg dark:text-zinc-400">{profile.role}</p>
         </motion.div>
 
-        <motion.p variants={item} className="max-w-2xl text-zinc-700 dark:text-zinc-300">
+        <motion.p variants={item} className="max-w-2xl text-sm leading-relaxed text-zinc-700 sm:text-base dark:text-zinc-300">
           {profile.bio}
         </motion.p>
 

@@ -21,10 +21,10 @@ const item = {
 
 export default function Contact() {
   return (
-    <section id="contact" className="scroll-mt-24 pb-24">
+    <section id="contact" className="scroll-mt-24 py-12 pb-24 md:py-24 md:pb-32">
       <div className="mb-8">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Get in Touch</h2>
-        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
           Have a question or want to discuss a project? I'm always open to new opportunities and collaborations.
         </p>
       </div>

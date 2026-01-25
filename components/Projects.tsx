@@ -21,10 +21,10 @@ const item = {
 
 export default function Projects() {
   return (
-    <section id="projects" className="scroll-mt-24 py-16">
+    <section id="projects" className="scroll-mt-24 py-12 md:py-24">
       <div className="mb-8">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Projects</h2>
-        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
           A showcase of full-stack applications and experimental frontend projects, highlighting my focus on performance, scalability, and seamless user experiences.
         </p>
       </div>
@@ -41,7 +41,7 @@ export default function Projects() {
             key={`${p.name}-${idx}`}
             variants={item}
             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-            className="group rounded-xl border border-zinc-200 bg-white/50 p-5 shadow-sm backdrop-blur-sm transition-all hover:border-indigo-300 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-950/50 dark:hover:border-indigo-700"
+            className="group rounded-xl border border-zinc-200 bg-white/50 p-4 shadow-sm backdrop-blur-sm transition-all hover:border-indigo-300 hover:shadow-lg sm:p-5 dark:border-zinc-800 dark:bg-zinc-950/50 dark:hover:border-indigo-700"
           >
             <div className="flex items-start justify-between">
               <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">{p.name}</h3>

@@ -5,17 +5,17 @@ import { experience } from "@/lib/data";
 
 export default function Experience() {
   return (
-    <section id="experience" className="scroll-mt-24 py-16">
+    <section id="experience" className="scroll-mt-24 py-12 md:py-24">
       <div className="mb-8">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Professional Experience</h2>
-        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
           A chronicle of my journey in software engineering, from architectural design at scale to foundational web development.
         </p>
       </div>
 
       <div className="relative">
         <div className="absolute left-2 top-0 h-full w-px bg-gradient-to-b from-indigo-500 via-purple-500 to-transparent dark:from-indigo-600 dark:via-purple-600" />
-        <ul className="space-y-8">
+        <ul className="space-y-6 md:space-y-8">
           {experience.map((item, idx) => (
             <motion.li
               key={`${item.title}-${idx}`}
@@ -28,7 +28,7 @@ export default function Experience() {
               <span className="absolute left-0 top-1 inline-block h-2.5 w-2.5 rounded-full bg-indigo-500 ring-4 ring-white transition-all group-hover:scale-125 group-hover:ring-indigo-100 dark:ring-black dark:group-hover:ring-indigo-950">
                 <span className="absolute inset-0 animate-ping rounded-full bg-indigo-400 opacity-75"></span>
               </span>
-              <div className="rounded-lg border border-transparent p-3 transition-all group-hover:border-indigo-200 group-hover:bg-indigo-50/50 dark:group-hover:border-indigo-900/50 dark:group-hover:bg-indigo-950/20">
+              <div className="rounded-lg border border-transparent p-2 transition-all group-hover:border-indigo-200 group-hover:bg-indigo-50/50 sm:p-3 dark:group-hover:border-indigo-900/50 dark:group-hover:bg-indigo-950/20">
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                   <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                     {item.title} <span className="font-normal text-zinc-500 dark:text-zinc-400">@ {item.company}</span>
