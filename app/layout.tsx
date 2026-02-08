@@ -33,9 +33,9 @@ export default function RootLayout({
           <Navbar />
           <main className="mx-auto max-w-5xl px-4">
             {children}
-            <Analytics />
           </main>
         </ClientThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
