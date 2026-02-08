@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { projects } from "@/lib/data";
 import { Github, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 const container = {
   hidden: { opacity: 0 },
@@ -41,45 +42,57 @@ export default function Projects() {
             key={`${p.name}-${idx}`}
             variants={item}
             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-            className="group rounded-xl border border-zinc-200 bg-white/50 p-4 shadow-sm backdrop-blur-sm transition-all hover:border-indigo-300 hover:shadow-lg sm:p-5 dark:border-zinc-800 dark:bg-zinc-950/50 dark:hover:border-indigo-700"
+            className="group overflow-hidden rounded-xl border border-zinc-200 bg-white/50 shadow-sm backdrop-blur-sm transition-all hover:border-indigo-300 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-950/50 dark:hover:border-indigo-700"
           >
-            <div className="flex items-start justify-between">
-              <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">{p.name}</h3>
-              <div className="flex gap-2">
-                {p.github && (
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-600 transition-all hover:scale-110 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400"
-                    aria-label="View source on GitHub"
-                  >
-                    <Github className="h-5 w-5" />
-                  </a>
-                )}
-                {p.live && (
-                  <a
-                    href={p.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-600 transition-all hover:scale-110 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400"
-                    aria-label="View live demo"
-                  >
-                    <ExternalLink className="h-5 w-5" />
-                  </a>
-                )}
+            {p.image && (
+              <div className="relative aspect-video w-full overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
+                <Image
+                  src={p.image}
+                  alt={p.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
               </div>
-            </div>
-            <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">{p.description}</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {p.tech.map((t) => (
-                <span
-                  key={t}
-                  className="inline-block rounded-md bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-700 transition-colors hover:bg-indigo-100 dark:bg-indigo-950/50 dark:text-indigo-300 dark:hover:bg-indigo-950/70"
-                >
-                  {t}
-                </span>
-              ))}
+            )}
+            <div className="p-4 sm:p-5">
+              <div className="flex items-start justify-between">
+                <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">{p.name}</h3>
+                <div className="flex gap-2">
+                  {p.github && (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-600 transition-all hover:scale-110 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400"
+                      aria-label="View source on GitHub"
+                    >
+                      <Github className="h-5 w-5" />
+                    </a>
+                  )}
+                  {p.live && (
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-600 transition-all hover:scale-110 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400"
+                      aria-label="View live demo"
+                    >
+                      <ExternalLink className="h-5 w-5" />
+                    </a>
+                  )}
+                </div>
+              </div>
+              <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">{p.description}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {p.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="inline-block rounded-md bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-700 transition-colors hover:bg-indigo-100 dark:bg-indigo-950/50 dark:text-indigo-300 dark:hover:bg-indigo-950/70"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.article>
         ))}
