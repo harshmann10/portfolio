@@ -40,7 +40,7 @@ export const profile: Profile = {
   links: {
     linkedin: "https://www.linkedin.com/in/harsh-mann01/",
     github: "https://github.com/harshmann10",
-    email: "Eharshmann8008@gmail.com",
+    email: "harshmann8008@gmail.com",
     resume: "/resume.pdf",
   },
 };
@@ -49,7 +49,7 @@ export const experience: ExperienceItem[] = [
   {
     title: "Software Developer Intern",
     company: "Design Avenue",
-    period: "July 2025 - Present",
+    period: "Aug 2025 - Present",
     highlights: [
       "Architecting and scaling core modules for ChemDoc and HRMS using the MERN stack.",
       "Developing high-performance, secure REST APIs and reusable frontend components with React.js and Tailwind CSS.",
@@ -140,5 +140,5 @@ export const skills: Skills = {
     "DaisyUI",
     "Socket.io",
   ],
-  tools: ["MongoDB", "MySQL", "Git/GitHub", "VS Code", "Appwrite", "Razorpay"],
+  tools: ["MongoDB", "MySQL", "Git/GitHub", "VS Code", "Appwrite", "Razorpay","Vercel"],
 };
