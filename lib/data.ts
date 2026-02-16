@@ -1,3 +1,9 @@
+import devtinderImg from "@/assets/projects/Devtinder.png";
+import aiTocImg from "@/assets/projects/AIToc.png";
+import pixelBlogImg from "@/assets/projects/PixelBlog.png";
+import musicPlayerImg from "@/assets/projects/MusicPlayer.png";
+import { StaticImageData } from "next/image";
+
 export type Profile = {
   name: string;
   role: string;
@@ -23,7 +29,7 @@ export type ProjectItem = {
   description: string;
   github?: string;
   live?: string;
-  image?: string;
+  image?: StaticImageData | string;
 };
 
 export type Skills = {
@@ -97,7 +103,7 @@ export const projects: ProjectItem[] = [
       "A sophisticated full-stack developer matching platform featuring real-time communication via Socket.io and a secure payment ecosystem integrated with Razorpay. Implements complex state management and responsive design.",
     github: "https://github.com/harshmann10/DevTinder-frontend",
     live: "https://devtinder01.vercel.app/",
-    image: "/projects/Devtinder.png",
+    image: devtinderImg,
   },
   {
     name: "Pixel Blog",
@@ -106,7 +112,7 @@ export const projects: ProjectItem[] = [
       "A high-performance blogging engine leveraging Appwrite as a backend-as-a-service. Features a custom rich-text editor integration (TinyMCE), secure user authentication, and dynamic media handling.",
     github: "https://github.com/harshmann10/PixelBlog",
     live: "https://pixel-blog-puce.vercel.app/",
-    image: "/projects/PixelBlog.png",
+    image: pixelBlogImg,
   },
   {
     name: "Web Music Player",
@@ -115,7 +121,7 @@ export const projects: ProjectItem[] = [
       "A custom-built audio streaming interface focused on advanced DOM manipulation and state synchronization. Features dynamic playlist management, intuitive keyboard controls, and responsive UI feedback.",
     github: "https://github.com/harshmann10/music-player",
     live: "https://freemusic1.netlify.app/",
-    image: "/projects/MusicPlayer.png",
+    image: musicPlayerImg,
   },
   {
     name: "AI Chat TOC",
@@ -124,7 +130,7 @@ export const projects: ProjectItem[] = [
       "A productivity-enhancing browser extension that adds a dynamic Table of Contents sidebar to major AI chat interfaces (ChatGPT, Claude, Gemini, Perplexity). Features include auto-generated navigation, drag-and-drop organization, and export functionality.",
     github: "https://github.com/harshmann10/AI-Chat-TOC",
     live: "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-toc/",
-    image: "/projects/AIToc.png",
+    image: aiTocImg,
   },
 ];
 
@@ -140,5 +146,5 @@ export const skills: Skills = {
     "DaisyUI",
     "Socket.io",
   ],
-  tools: ["MongoDB", "MySQL", "Git/GitHub", "VS Code", "Appwrite", "Razorpay","Vercel"],
+  tools: ["MongoDB", "MySQL", "Git/GitHub", "VS Code", "Appwrite", "Razorpay", "Vercel"],
 };
