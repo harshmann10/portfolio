@@ -16,9 +16,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Harsh Mann | Portfolio",
+  title: "Harsh Mann | Full Stack Developer",
   description:
-    "Full Stack Developer (MERN) portfolio of Harsh Mann — projects, experience, and contact.",
+    "I'm Harsh Mann, a Full Stack Developer (MERN) specializing in building scalable web applications and high-performance REST APIs.",
+  keywords: ["Harsh Mann", "Full Stack Developer", "MERN Stack", "Portfolio", "Web Developer"],
+  authors: [{ name: "Harsh Mann" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://harshmann.vercel.app",
+    title: "Harsh Mann | Full Stack Developer",
+    description: "Full Stack Developer specializing in MERN stack and scalable web solutions.",
+    siteName: "Harsh Mann Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Harsh Mann | Full Stack Developer",
+    description: "Full Stack Developer specializing in MERN stack and scalable web solutions.",
+  },
 };
 
 export default function RootLayout({

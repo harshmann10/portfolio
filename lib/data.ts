@@ -47,7 +47,7 @@ export const profile: Profile = {
     linkedin: "https://www.linkedin.com/in/harsh-mann01/",
     github: "https://github.com/harshmann10",
     email: "harshmann8008@gmail.com",
-    resume: "/resume.pdf",
+    resume: "https://drive.google.com/file/d/1xgjg8HCSZI-KWEu42u1juT452FmVq8uW/preview",
   },
 };
 

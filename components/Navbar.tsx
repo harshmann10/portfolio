@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { profile } from "@/lib/data";
 import { useState, useEffect } from "react";
@@ -19,7 +18,7 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState("hero");
 
   // Close menu when clicking a link or resizing
   const closeMenu = () => setIsOpen(false);
@@ -30,6 +29,34 @@ export default function Navbar() {
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Scroll Spy logic
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px", // Adjust these values to change trigger point
+      threshold: 0,
+    };
+
+    const callback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+
+    navItems.forEach((item) => {
+      const element = document.querySelector(item.href);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -43,16 +70,36 @@ export default function Navbar() {
             Harsh Mann
           </Link>
           <ul className="hidden items-center gap-4 md:flex">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="relative text-sm text-zinc-600 transition-colors hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.slice(1);
+              return (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.querySelector(item.href)?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                      setActiveSection(item.href.slice(1));
+                    }}
+                    className={`relative px-3 py-1.5 text-sm font-medium transition-colors ${isActive
+                      ? "text-indigo-600 dark:text-indigo-400"
+                      : "text-zinc-600 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400"
+                      }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeSection"
+                        className="absolute inset-0 -z-10 rounded-full bg-indigo-50 dark:bg-indigo-900/20"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
@@ -88,16 +135,29 @@ export default function Navbar() {
             className="overflow-hidden border-t border-zinc-200/60 bg-white md:hidden dark:border-zinc-800/60 dark:bg-black"
           >
             <div className="flex flex-col space-y-4 p-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeMenu}
-                  className="text-sm font-medium text-zinc-600 transition-colors hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const isActive = activeSection === item.href.slice(1);
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      closeMenu();
+                      document.querySelector(item.href)?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                      setActiveSection(item.href.slice(1));
+                    }}
+                    className={`text-sm font-medium transition-colors hover:text-indigo-600 dark:hover:text-indigo-400 ${isActive
+                        ? "text-indigo-600 dark:text-indigo-400"
+                        : "text-zinc-600 dark:text-zinc-400"
+                      }`}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
               <a
                 href={profile.links.resume}
                 target="_blank"

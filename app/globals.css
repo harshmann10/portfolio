@@ -39,11 +39,13 @@ body.dark {
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(99 102 241 / 0.5) transparent;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -51,10 +53,13 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(99 102 241 / 0.3);
-  border-radius: 5px;
+  background: rgb(99 102 241 / 0.5);
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(99 102 241 / 0.5);
+  background: rgb(99 102 241 / 0.8);
+  background-clip: content-box;
 }
