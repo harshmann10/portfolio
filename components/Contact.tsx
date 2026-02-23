@@ -119,23 +119,26 @@ export default function Contact() {
                 />
               </div>
 
-              {error && <p className="text-sm text-red-500">{error}</p>}
-              {isSuccess && <p className="text-sm text-green-500">Message sent successfully!</p>}
+              <div aria-live="polite">
+                {error && <p className="text-sm text-red-500">{error}</p>}
+                {isSuccess && <p className="text-sm text-green-500">Message sent successfully!</p>}
+              </div>
 
               <button
                 type="submit"
                 disabled={isLoading || isSuccess}
+                aria-busy={isLoading}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-700 disabled:opacity-50 disabled:hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-500"
               >
                 {isLoading ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" /> Sending...
+                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> Sending...
                   </>
                 ) : isSuccess ? (
                   "Sent!"
                 ) : (
                   <>
-                    Send Message <Send className="h-4 w-4" />
+                    Send Message <Send className="h-4 w-4" aria-hidden="true" />
                   </>
                 )}
               </button>

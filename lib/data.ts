@@ -127,7 +127,7 @@ export const projects: ProjectItem[] = [
     name: "AI Chat TOC",
     tech: ["JavaScript", "WebExtensions API", "HTML", "CSS"],
     description:
-      "A productivity-enhancing browser extension that adds a dynamic Table of Contents sidebar to major AI chat interfaces (ChatGPT, Claude, Gemini, Perplexity). Features include auto-generated navigation, drag-and-drop organization, and export functionality.",
+      "A productivity-enhancing browser extension that adds a dynamic Table of Contents sidebar to major AI chat interfaces (ChatGPT, Claude, Gemini, Perplexity, Grok). Features include auto-generated navigation, drag-and-drop organization, and export functionality.",
     github: "https://github.com/harshmann10/AI-Chat-TOC",
     live: "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-toc/",
     image: aiTocImg,

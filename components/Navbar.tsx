@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 import { profile } from "@/lib/data";
 import { useState, useEffect } from "react";
@@ -20,15 +19,20 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
 
-  // Close menu when clicking a link or resizing
+  // Close menu when clicking a link or resizing or pressing escape
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) setIsOpen(false);
+    const handleEvents = (e: KeyboardEvent | UIEvent) => {
+      if (e instanceof KeyboardEvent && e.key === "Escape") closeMenu();
+      if (e instanceof UIEvent && window.innerWidth >= 768) closeMenu();
     };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", handleEvents);
+    window.addEventListener("keydown", handleEvents as any);
+    return () => {
+      window.removeEventListener("resize", handleEvents);
+      window.removeEventListener("keydown", handleEvents as any);
+    };
   }, []);
 
   // Scroll Spy logic
@@ -61,14 +65,22 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/60 bg-white/90 shadow-sm backdrop-blur-md dark:border-zinc-800/60 dark:bg-black/80">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3" aria-label="Main navigation">
         <div className="flex items-center gap-6">
-          <Link
+          <a
             href="#hero"
+            aria-label="Harsh Mann - Portfolio Home"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#hero")?.scrollIntoView({
+                behavior: "smooth",
+              });
+              setActiveSection("hero");
+            }}
             className="font-semibold text-zinc-900 transition-colors hover:text-indigo-600 dark:text-zinc-100 dark:hover:text-indigo-400"
           >
             Harsh Mann
-          </Link>
+          </a>
           <ul className="hidden items-center gap-4 md:flex">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.slice(1);
@@ -76,6 +88,7 @@ export default function Navbar() {
                 <li key={item.href}>
                   <a
                     href={item.href}
+                    aria-current={isActive ? "page" : undefined}
                     onClick={(e) => {
                       e.preventDefault();
                       document.querySelector(item.href)?.scrollIntoView({
@@ -109,6 +122,7 @@ export default function Navbar() {
             href={profile.links.resume}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Download/View Resume (PDF)"
             className="hidden rounded-lg border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-800 shadow-sm transition-all hover:border-indigo-500 hover:text-indigo-600 hover:shadow-md md:inline-block dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
           >
             Resume
@@ -118,7 +132,9 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="rounded-lg p-2 text-zinc-600 transition-colors hover:bg-zinc-100 md:hidden dark:text-zinc-400 dark:hover:bg-zinc-800"
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -129,6 +145,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -150,8 +167,8 @@ export default function Navbar() {
                       setActiveSection(item.href.slice(1));
                     }}
                     className={`text-sm font-medium transition-colors hover:text-indigo-600 dark:hover:text-indigo-400 ${isActive
-                        ? "text-indigo-600 dark:text-indigo-400"
-                        : "text-zinc-600 dark:text-zinc-400"
+                      ? "text-indigo-600 dark:text-indigo-400"
+                      : "text-zinc-600 dark:text-zinc-400"
                       }`}
                   >
                     {item.label}

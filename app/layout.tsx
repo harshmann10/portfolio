@@ -45,8 +45,14 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ClientThemeProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-indigo-600 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:bg-zinc-900 dark:focus:text-indigo-400"
+          >
+            Skip to main content
+          </a>
           <Navbar />
-          <main className="mx-auto max-w-5xl px-4">
+          <main id="main-content" className="mx-auto max-w-5xl px-4">
             {children}
           </main>
         </ClientThemeProvider>

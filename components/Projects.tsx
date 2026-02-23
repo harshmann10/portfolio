@@ -35,7 +35,7 @@ export default function Projects() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.1 }}
-        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2"
       >
         {projects.map((p, idx) => (
           <motion.article
@@ -48,7 +48,7 @@ export default function Projects() {
               <div className="relative aspect-video w-full overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
                 <Image
                   src={p.image}
-                  alt={p.name}
+                  alt={`Screenshot of ${p.name} project`}
                   fill
                   placeholder="blur"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

@@ -45,6 +45,7 @@ export default function Hero() {
             href={profile.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm transition-all hover:border-indigo-500 hover:text-indigo-600 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
@@ -55,6 +56,7 @@ export default function Hero() {
             href={profile.links.github}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub Profile"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm transition-all hover:border-indigo-500 hover:text-indigo-600 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
@@ -63,6 +65,7 @@ export default function Hero() {
           </motion.a>
           <motion.a
             href={`mailto:${profile.links.email}`}
+            aria-label="Send Email"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm transition-all hover:border-indigo-500 hover:text-indigo-600 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
@@ -73,6 +76,7 @@ export default function Hero() {
             href={profile.links.resume}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Download or View Resume"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-700 px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:shadow-lg dark:from-indigo-500 dark:to-indigo-600"
