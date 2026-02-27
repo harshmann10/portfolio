@@ -5,7 +5,6 @@ import { profile } from "@/lib/data";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { track } from "@vercel/analytics";
 
 const navItems = [
   { href: "#hero", label: "Home" },
@@ -123,7 +122,6 @@ export default function Navbar() {
             href="/resume"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => track("Resume Clicked")}
             aria-label="Download/View Resume (PDF)"
             className="hidden rounded-lg border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-800 shadow-sm transition-all hover:border-indigo-500 hover:text-indigo-600 hover:shadow-md md:inline-block dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
           >
@@ -181,10 +179,7 @@ export default function Navbar() {
                 href="/resume"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => {
-                  track("Resume Clicked (Mobile)");
-                  closeMenu();
-                }}
+                onClick={closeMenu}
                 className="inline-block rounded-lg border border-zinc-300 px-3 py-2 text-center text-sm font-medium text-zinc-800 transition-all dark:border-zinc-700 dark:text-zinc-200"
               >
                 View Resume
