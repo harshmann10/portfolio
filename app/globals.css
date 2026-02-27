@@ -40,7 +40,7 @@ body.dark {
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: rgb(99 102 241 / 0.5) transparent;
+  scrollbar-color: rgb(82 82 91 / 0.5) transparent;
 }
 
 /* Custom scrollbar */
@@ -53,14 +53,14 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(99 102 241 / 0.5);
+  background: rgb(82 82 91 / 0.5);
   border-radius: 20px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(99 102 241 / 0.8);
+  background: rgb(82 82 91 / 0.8);
   background-clip: content-box;
 }
 

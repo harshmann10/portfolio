@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { profile } from "@/lib/data";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { track } from "@vercel/analytics";
 
 const container = {
   hidden: { opacity: 0 },
@@ -73,10 +74,11 @@ export default function Hero() {
             <Mail className="h-4 w-4" /> Email
           </motion.a>
           <motion.a
-            href={profile.links.resume}
+            href="/resume"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Download or View Resume"
+            onClick={() => track("Resume Clicked (Hero)")}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-700 px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:shadow-lg dark:from-indigo-500 dark:to-indigo-600"
