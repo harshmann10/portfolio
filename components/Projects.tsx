@@ -45,13 +45,17 @@ export default function Projects() {
             className="group overflow-hidden rounded-xl border border-zinc-200 bg-white/50 shadow-sm backdrop-blur-sm transition-all hover:border-indigo-300 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-950/50 dark:hover:border-indigo-700"
           >
             {p.image && (
-              <div className="relative aspect-video w-full overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
+              <div className="relative aspect-video w-full overflow-hidden border-b border-zinc-200 bg-zinc-200 animate-pulse dark:border-zinc-800 dark:bg-zinc-800">
                 <Image
                   src={p.image}
                   alt={`Screenshot of ${p.name} project`}
                   fill
                   placeholder="blur"
+                  priority
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  onLoad={(e) => {
+                    (e.target as HTMLElement).parentElement?.classList.remove("animate-pulse");
+                  }}
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
@@ -89,7 +93,7 @@ export default function Projects() {
                 {p.tech.map((t) => (
                   <span
                     key={t}
-                    className="inline-block rounded-md bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-700 transition-colors hover:bg-indigo-100 dark:bg-indigo-950/50 dark:text-indigo-300 dark:hover:bg-indigo-950/70"
+                    className="inline-block cursor-default rounded-md border border-transparent bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-700 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-indigo-200 hover:bg-indigo-100 hover:shadow-sm dark:bg-indigo-950/50 dark:text-indigo-300 dark:hover:border-indigo-800/50 dark:hover:bg-indigo-900/60 dark:hover:text-indigo-200"
                   >
                     {t}
                   </span>

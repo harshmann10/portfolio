@@ -25,8 +25,10 @@ export default function Experience() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="group relative pl-8"
             >
-              <span className="absolute left-0 top-1 inline-block h-2.5 w-2.5 rounded-full bg-indigo-500 ring-4 ring-white transition-all group-hover:scale-125 group-hover:ring-indigo-100 dark:ring-black dark:group-hover:ring-indigo-950">
-                <span className="absolute inset-0 animate-ping rounded-full bg-indigo-400 opacity-75"></span>
+              <span className="absolute left-0 top-1.5 z-10 inline-block h-2.5 w-2.5 rounded-full bg-indigo-500 ring-4 ring-white transition-all group-hover:scale-125 group-hover:ring-indigo-100 dark:ring-black dark:group-hover:ring-indigo-950">
+                {idx === 0 && (
+                  <span className="absolute inset-0 animate-ping rounded-full bg-indigo-400 opacity-75"></span>
+                )}
               </span>
               <div className="rounded-lg border border-transparent p-2 transition-all group-hover:border-indigo-200 group-hover:bg-indigo-50/50 sm:p-3 dark:group-hover:border-indigo-900/50 dark:group-hover:bg-indigo-950/20">
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
