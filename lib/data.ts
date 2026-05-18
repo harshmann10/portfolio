@@ -53,14 +53,23 @@ export const profile: Profile = {
 
 export const experience: ExperienceItem[] = [
   {
+    title: "Software Developer",
+    company: "Design Avenue",
+    period: "Feb 2026 - Present",
+    highlights: [
+      "Transitioned to a full-time role to continue architecting, scaling, and optimizing core modules for GRC and HRMS.",
+      "Leading the development of advanced backend systems and integrating AI-driven integrations into the GRC platform.",
+    ],
+  },
+  {
     title: "Software Developer Intern",
     company: "Design Avenue",
-    period: "Aug 2025 - Present",
+    period: "Aug 2025 - Jan 2026",
     highlights: [
-      "Architecting and scaling core modules for ChemDoc and HRMS using the MERN stack.",
-      "Developing high-performance, secure REST APIs and reusable frontend components with React.js and Tailwind CSS.",
+      "Architected and scaled core modules for ChemDoc and HRMS using the MERN stack.",
+      "Developed high-performance, secure REST APIs and reusable frontend components with React.js and Tailwind CSS.",
       "Engineered a comprehensive GRC platform integrated with Role-Based Access Control (RBAC) and automated workflows.",
-      "Implementing Retrieval-Augmented Generation (RAG) features to enhance platform intelligence and data retrieval.",
+      "Implemented Retrieval-Augmented Generation (RAG) features to enhance platform intelligence and data retrieval.",
     ],
   },
   {
