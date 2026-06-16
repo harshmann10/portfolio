@@ -38,17 +38,20 @@ A modern, high-performance portfolio website built with **Next.js 15**, **TypeSc
 ## 🚀 Run Locally
 
 1.  **Clone the repository:**
+
     ```bash
     git clone https://github.com/harshmann10/portfolio.git
     cd portfolio
     ```
 
 2.  **Install dependencies:**
+
     ```bash
     npm install
     ```
 
 3.  **Start the development server:**
+
     ```bash
     npm run dev
     ```
@@ -60,7 +63,7 @@ A modern, high-performance portfolio website built with **Next.js 15**, **TypeSc
 
 - **Content**: Update `lib/data.ts` to change your bio, experience, projects, resume and skills without touching the UI code.
 - **Theme**: The primary accent color is `indigo-600`. You can find-and-replace `indigo` in the codebase to switch to another Tailwind color (e.g., `emerald`, `rose`, `blue`).
-- **Contact Form**: Get your access key from [Web3Forms](https://web3forms.com/) and update the `access_key` in `components/Contact.tsx`.
+- **Contact Form**: Get your access key from [Web3Forms](https://web3forms.com/) and add it to `.env` as `WEB3FORMS_ACCESS_KEY=your_key_here`.
 - **Metadata**: Modify `app/layout.tsx` to update the site title, description, keywords, and SEO/OpenGraph tags.
 
 ## 📄 License

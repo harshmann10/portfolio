@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Send, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { submitContactForm } from "@/app/actions";
 
 const container = {
   hidden: { opacity: 0 },
@@ -30,22 +31,15 @@ export default function Contact() {
     setError("");
 
     const formData = new FormData(e.currentTarget);
-    // Add your Web3Forms Access Key here
-    formData.append("access_key", "db0db5f8-4618-4563-82b9-fa4da1c33b24");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await response.json();
+      const data = await submitContactForm(formData);
 
       if (data.success) {
         setIsSuccess(true);
         (e.target as HTMLFormElement).reset();
       } else {
-        setError("Something went wrong. Please try again later.");
+        setError(data.message || "Something went wrong. Please try again later.");
       }
     } catch (err) {
       setError("Failed to send message. Please check your internet connection.");
