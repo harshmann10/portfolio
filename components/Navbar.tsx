@@ -7,6 +7,8 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+import iconImg from "@/app/icon.png";
 
 const navItems = [
   { href: "#hero", label: "Home" },
@@ -68,7 +70,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/60 bg-white/90 shadow-sm backdrop-blur-md dark:border-zinc-800/60 dark:bg-black/80">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/60 bg-white/80 shadow-sm backdrop-blur-md dark:border-zinc-800/60 dark:bg-zinc-950/80">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3" aria-label="Main navigation">
         <div className="flex items-center gap-6">
           <Link
@@ -81,9 +83,18 @@ export default function Navbar() {
                 setActiveSection("hero");
               }
             }}
-            className="font-semibold text-zinc-900 transition-colors hover:text-indigo-600 dark:text-zinc-100 dark:hover:text-indigo-400"
+            className="flex items-center gap-2 font-semibold text-zinc-900 transition-colors hover:text-indigo-600 dark:text-zinc-100 dark:hover:text-indigo-400"
           >
-            Harsh Mann
+            <div className="relative h-8 w-8 overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
+              <Image 
+                src={iconImg} 
+                alt="Logo" 
+                fill 
+                className="object-cover" 
+                sizes="32px" 
+                priority
+              />
+            </div>
           </Link>
           <ul className="hidden items-center gap-4 md:flex">
             {navItems.map((item) => {
@@ -125,7 +136,7 @@ export default function Navbar() {
           <Link
             href="/resume"
             aria-label="Download/View Resume (PDF)"
-            className="hidden rounded-lg border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-800 shadow-sm transition-all hover:border-indigo-500 hover:text-indigo-600 hover:shadow-md md:inline-block dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
+            className="hidden rounded-xl border border-zinc-200 bg-white/80 px-4 py-1.5 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-indigo-300 hover:text-indigo-600 hover:shadow-md md:inline-block dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-300 dark:hover:border-indigo-500 dark:hover:text-indigo-400 cursor-pointer"
           >
             Resume
           </Link>
@@ -151,7 +162,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-zinc-200/60 bg-white md:hidden dark:border-zinc-800/60 dark:bg-black"
+            className="overflow-hidden border-t border-zinc-200/60 bg-white md:hidden dark:border-zinc-800/60 dark:bg-zinc-950"
           >
             <div className="flex flex-col space-y-4 p-4">
               {navItems.map((item) => {
@@ -164,8 +175,14 @@ export default function Navbar() {
                       if (isHomePage) {
                         e.preventDefault();
                         closeMenu();
-                        document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
-                        setActiveSection(item.href.slice(1));
+                        const target = item.href;
+                        setTimeout(() => {
+                          const element = document.querySelector(target);
+                          if (element) {
+                            element.scrollIntoView({ behavior: "smooth" });
+                            setActiveSection(target.slice(1));
+                          }
+                        }, 150);
                       } else {
                         closeMenu();
                       }
@@ -182,7 +199,7 @@ export default function Navbar() {
               <Link
                 href="/resume"
                 onClick={closeMenu}
-                className="inline-block rounded-lg border border-zinc-300 px-3 py-2 text-center text-sm font-medium text-zinc-800 transition-all dark:border-zinc-700 dark:text-zinc-200"
+                className="inline-block rounded-xl border border-zinc-200 bg-white/80 px-3 py-2 text-center text-sm font-medium text-zinc-700 transition-all dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-300 hover:border-indigo-300 hover:text-indigo-600 dark:hover:border-indigo-500 dark:hover:text-indigo-400"
               >
                 View Resume
               </Link>

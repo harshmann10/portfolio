@@ -29,7 +29,17 @@ export default function GithubActivity() {
         setMounted(true);
     }, []);
 
-    if (!mounted) return null;
+    if (!mounted) {
+        return (
+            <section id="activity" className="scroll-mt-24 py-12 md:py-24">
+                <div className="mb-8">
+                    <div className="h-8 w-64 rounded-lg bg-zinc-200 dark:bg-zinc-800 animate-pulse" />
+                    <div className="mt-2 h-4 w-96 rounded-lg bg-zinc-200/60 dark:bg-zinc-800/60 animate-pulse" />
+                </div>
+                <div className="h-[180px] rounded-xl border border-zinc-100 dark:border-zinc-900 bg-white/40 dark:bg-zinc-950/10 animate-pulse" />
+            </section>
+        );
+    }
 
     return (
         <section id="activity" className="scroll-mt-24 py-12 md:py-24">
@@ -51,15 +61,19 @@ export default function GithubActivity() {
                 <motion.div
                     variants={item}
                     whileHover={{ y: -5 }}
-                    className="flex flex-col items-center justify-center rounded-xl border border-zinc-200 bg-white/50 p-6 shadow-sm backdrop-blur-sm transition-all hover:border-indigo-300 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-950/50 dark:hover:border-indigo-700"
+                    className="flex min-h-[180px] w-full flex-col items-center justify-center rounded-xl border border-zinc-100 dark:border-zinc-900 bg-white/40 dark:bg-zinc-950/10 p-6 shadow-sm backdrop-blur-[2px] transition-all duration-300 hover:border-indigo-200 dark:hover:border-indigo-900/40 hover:bg-gradient-to-r hover:from-blue-50/20 hover:to-indigo-50/20 dark:hover:from-blue-950/10 dark:hover:to-indigo-950/10 hover:shadow-md"
                 >
-                    <GitHubCalendar
-                        username="harshmann10"
-                        colorScheme={currentTheme === "dark" ? "dark" : "light"}
-                        fontSize={12}
-                        blockSize={12}
-                        blockMargin={4}
-                    />
+                    {mounted ? (
+                        <GitHubCalendar
+                            username="harshmann10"
+                            colorScheme={currentTheme === "dark" ? "dark" : "light"}
+                            fontSize={12}
+                            blockSize={12}
+                            blockMargin={4}
+                        />
+                    ) : (
+                        <div className="h-[140px] w-full max-w-3xl animate-pulse rounded-lg bg-zinc-200/50 dark:bg-zinc-800/50"></div>
+                    )}
                 </motion.div>
             </motion.div>
         </section>

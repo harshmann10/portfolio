@@ -40,9 +40,9 @@ export type Skills = {
 
 export const profile: Profile = {
   name: "Harsh Mann",
-  role: "Full Stack Developer (MERN)",
+  role: "Full Stack Developer",
   bio:
-    "I am a Full Stack Developer (MERN) with a passion for building scalable, high-performance web applications. Currently at Design Avenue, I've engineered complex GRC and HRMS solutions, focusing on robust REST APIs and RAG features. From real-time platforms like DevTinder to feature-rich content systems, I combine efficient backend logic with clean, modern UI/UX to create seamless digital products.",
+    "I am a Full Stack Developer specializing in building high-performance, scalable web applications. Currently at Design Avenue, I architect and build enterprise GRC and HRMS platforms, focusing on robust REST API design and intelligent AI-driven integrations. I combine secure, efficient backend logic with clean, modern UI/UX to deliver seamless digital products.",
   links: {
     linkedin: "https://www.linkedin.com/in/harsh-mann01/",
     github: "https://github.com/harshmann10",
@@ -57,8 +57,10 @@ export const experience: ExperienceItem[] = [
     company: "Design Avenue",
     period: "Feb 2026 - Present",
     highlights: [
-      "Transitioned to a full-time role to continue architecting, scaling, and optimizing core modules for GRC and HRMS.",
-      "Leading the development of advanced backend systems and integrating AI-driven integrations into the GRC platform.",
+      "Architect and scale core modules for high-traffic GRC (Governance, Risk, and Compliance) and HRMS enterprise platforms.",
+      "Developed and deployed specialized cybersecurity platforms, engineering automated repository vulnerability scanners, pentest submission workflows, and dynamic security report generation systems.",
+      "Lead backend optimization efforts, streamlining database aggregation pipelines and API routes to reduce latency.",
+      "Design and deploy secure third-party integrations and complex role-based access control (RBAC) permission systems.",
     ],
   },
   {
@@ -66,10 +68,10 @@ export const experience: ExperienceItem[] = [
     company: "Design Avenue",
     period: "Aug 2025 - Jan 2026",
     highlights: [
-      "Architected and scaled core modules for ChemDoc and HRMS using the MERN stack.",
-      "Developed high-performance, secure REST APIs and reusable frontend components with React.js and Tailwind CSS.",
-      "Engineered a comprehensive GRC platform integrated with Role-Based Access Control (RBAC) and automated workflows.",
-      "Implemented Retrieval-Augmented Generation (RAG) features to enhance platform intelligence and data retrieval.",
+      "Co-engineered core microservices and database schemas for ChemDoc and HRMS platforms using the MERN stack.",
+      "Developed secure, high-performance REST APIs and reusable React.js components styled with Tailwind CSS.",
+      "Built Retrieval-Augmented Generation (RAG) features utilizing vector search to enable automated, intelligent document parsing.",
+      "Engineered automated workflows and robust role-based access protocols to handle multi-tenant enterprise data securely.",
     ],
   },
   {
@@ -77,9 +79,9 @@ export const experience: ExperienceItem[] = [
     company: "Codsoft",
     period: "Sep 2023 - Oct 2023",
     highlights: [
-      "Successfully designed and developed robust Java projects including a student-grade calculator and an ATM Interface.",
-      "Demonstrated proficiency in core Java concepts, object-oriented programming, and complex problem-solving.",
-      "Applied critical thinking to create practical solutions for real-world challenges, improving overall analytical abilities.",
+      "Developed robust, Object-Oriented Java applications, including an ATM Interface and a Student Grade Calculator.",
+      "Applied core OOP principles, custom exception handling, and data structures to ensure code modularity and reliability.",
+      "Designed clean, responsive command-line and graphical interfaces focusing on intuitive user workflows.",
     ],
   },
   {
@@ -87,9 +89,9 @@ export const experience: ExperienceItem[] = [
     company: "The Spark Foundation",
     period: "Nov 2022 - Dec 2022",
     highlights: [
-      "Designed, built, and deployed multiple engaging web experiences, including a personal portfolio and a redesigned homepage.",
-      "Demonstrated proficiency in modern web standards including HTML5, CSS3, and JavaScript.",
-      "Implemented innovative design solutions to enhance website aesthetics and usability, resulting in more modern and user-friendly platforms.",
+      "Built and launched interactive web projects, including custom landing pages and personal portfolio sites.",
+      "Wrote clean, semantic HTML5, CSS3, and ES6+ JavaScript, maintaining cross-browser compatibility and responsive layouts.",
+      "Followed mobile-first design methodologies, reducing page load times and optimizing rendering performance.",
     ],
   },
 ];
@@ -109,37 +111,37 @@ export const projects: ProjectItem[] = [
       "DaisyUI",
     ],
     description:
-      "A sophisticated full-stack developer matching platform featuring real-time communication via Socket.io and a secure payment ecosystem integrated with Razorpay. Implements complex state management and responsive design.",
+      "A developer connection platform featuring real-time chat via Socket.io, mutual matching mechanics, and premium subscriptions integrated with Razorpay. Built with a responsive design, secure authentication, and global state management.",
     github: "https://github.com/harshmann10/DevTinder-frontend",
     live: "https://devtinder01.vercel.app/",
     image: devtinderImg,
   },
   {
-    name: "Pixel Blog",
-    tech: ["React.js", "Appwrite", "TinyMCE", "Redux Toolkit", "Tailwind CSS"],
+    name: "AI Chat TOC",
+    tech: ["HTML", "CSS", "JavaScript", "WebExtensions API"],
     description:
-      "A high-performance blogging engine leveraging Appwrite as a backend-as-a-service. Features a custom rich-text editor integration (TinyMCE), secure user authentication, and dynamic media handling.",
-    github: "https://github.com/harshmann10/PixelBlog",
-    live: "https://pixel-blog-puce.vercel.app/",
-    image: pixelBlogImg,
+      "A highly successful productivity extension actively used by over 500+ users across three major extension stores (Chrome, Edge, Firefox). It adds a dynamic Table of Contents sidebar to major AI chat interfaces (ChatGPT, Claude, Gemini, Perplexity, Grok), featuring auto-generated navigation and drag-and-drop organization.",
+    github: "https://github.com/harshmann10/AI-Chat-TOC",
+    live: "https://chromewebstore.google.com/detail/ai-chat-toc/ainbhafdpkbgbkcomkhkilokelolnnpn",
+    image: aiTocImg,
   },
   {
     name: "Web Music Player",
     tech: ["HTML", "CSS", "JavaScript"],
     description:
-      "A custom-built audio streaming interface focused on advanced DOM manipulation and state synchronization. Features dynamic playlist management, intuitive keyboard controls, and responsive UI feedback.",
+      "An interactive web-based audio player emphasizing custom playback controls, dynamic playlist queues, keyboard shortcuts, and state synchronization. Optimized for fluid visual transitions and DOM performance.",
     github: "https://github.com/harshmann10/music-player",
     live: "https://freemusic1.netlify.app/",
     image: musicPlayerImg,
   },
   {
-    name: "AI Chat TOC",
-    tech: ["JavaScript", "WebExtensions API", "HTML", "CSS"],
+    name: "Pixel Blog",
+    tech: ["React.js", "Appwrite", "TinyMCE", "Redux Toolkit", "Tailwind CSS"],
     description:
-      "A productivity-enhancing browser extension that adds a dynamic Table of Contents sidebar to major AI chat interfaces (ChatGPT, Claude, Gemini, Perplexity, Grok). Features include auto-generated navigation, drag-and-drop organization, and export functionality.",
-    github: "https://github.com/harshmann10/AI-Chat-TOC",
-    live: "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-toc/",
-    image: aiTocImg,
+      "A responsive content management platform leveraging Appwrite as a Backend-as-a-Service (BaaS). Implements rich-text editing via TinyMCE, secure multi-user authentication, and automated file storage/retrieval.",
+    github: "https://github.com/harshmann10/PixelBlog",
+    live: "https://pixel-blog-puce.vercel.app/",
+    image: pixelBlogImg,
   },
 ];
 

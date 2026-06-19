@@ -22,11 +22,11 @@ export default function ResumePage() {
             </div>
 
             {/* Resume Embed */}
-            <div className="relative w-full overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 h-[80vh] min-h-[600px]">
+            <div className="relative w-full overflow-hidden rounded-xl border border-zinc-200/80 bg-white/60 p-1.5 shadow-md backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/40 h-[80vh] min-h-[600px]">
                 {/* The iframe holding the resume preview */}
                 <iframe
                     src={profile.links.resume}
-                    className="absolute inset-0 h-full w-full border-none"
+                    className="absolute inset-1.5 h-[calc(100%-12px)] w-[calc(100%-12px)] rounded-lg border-none"
                     title="Harsh Mann - Resume"
                     allow="autoplay"
                 />
