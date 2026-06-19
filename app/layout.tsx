@@ -9,7 +9,6 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
-  preload: false,
 });
 
 
@@ -43,23 +42,23 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className={`${geistSans.variable} font-sans bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Harsh Mann",
+              url: "https://harshmann.vercel.app",
+              jobTitle: "Full Stack Developer",
+              sameAs: [
+                "https://github.com/harshmann10",
+                "https://www.linkedin.com/in/harsh-mann01/"
+              ]
+            })
+          }}
+        />
         <ClientThemeProvider>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Person",
-                name: "Harsh Mann",
-                url: "https://harshmann.vercel.app",
-                jobTitle: "Full Stack Developer",
-                sameAs: [
-                  "https://github.com/harshmann10",
-                  "https://www.linkedin.com/in/harsh-mann01/"
-                ]
-              })
-            }}
-          />
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-indigo-600 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:bg-zinc-900 dark:focus:text-indigo-400"

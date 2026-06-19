@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { projects } from "@/lib/data";
+import { projects, type ProjectItem } from "@/lib/data";
 import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
-import { getSkillIcon } from "@/components/Skills";
+import { getSkillIcon } from "@/lib/skillIcons";
 import { useState } from "react";
 
 const container = {
@@ -22,7 +22,7 @@ const item = {
   show: { opacity: 1, y: 0 },
 };
 
-function ProjectCard({ p }: { p: typeof projects[0] }) {
+function ProjectCard({ p }: { p: ProjectItem }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
@@ -39,7 +39,7 @@ function ProjectCard({ p }: { p: typeof projects[0] }) {
             fill
             placeholder="blur"
             priority
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            sizes="(max-width: 640px) 100vw, 50vw"
             onLoad={() => setImageLoaded(true)}
             className={`object-cover transition-all duration-500 group-hover/card:scale-110 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
           />
