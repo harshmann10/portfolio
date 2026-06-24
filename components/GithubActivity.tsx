@@ -63,17 +63,13 @@ export default function GithubActivity() {
                     whileHover={{ y: -5 }}
                     className="flex min-h-[180px] w-full flex-col items-center justify-center rounded-xl border border-zinc-100 dark:border-zinc-900 bg-white/40 dark:bg-zinc-950/10 p-6 shadow-sm backdrop-blur-[2px] transition-all duration-300 hover:border-indigo-200 dark:hover:border-indigo-900/40 hover:bg-gradient-to-r hover:from-blue-50/20 hover:to-indigo-50/20 dark:hover:from-blue-950/10 dark:hover:to-indigo-950/10 hover:shadow-md"
                 >
-                    {mounted ? (
-                        <GitHubCalendar
-                            username="harshmann10"
-                            colorScheme={currentTheme === "dark" ? "dark" : "light"}
-                            fontSize={12}
-                            blockSize={12}
-                            blockMargin={4}
-                        />
-                    ) : (
-                        <div className="h-[140px] w-full max-w-3xl animate-pulse rounded-lg bg-zinc-200/50 dark:bg-zinc-800/50"></div>
-                    )}
+                    <GitHubCalendar
+                        username="harshmann10"
+                        colorScheme={currentTheme === "dark" ? "dark" : "light"}
+                        fontSize={12}
+                        blockSize={12}
+                        blockMargin={4}
+                    />
                 </motion.div>
             </motion.div>
         </section>

@@ -146,16 +146,32 @@ export const projects: ProjectItem[] = [
 ];
 
 export const skills: Skills = {
-  languages: ["JavaScript", "Java", "HTML", "CSS", "SQL"],
+  languages: ["JavaScript", "TypeScript", "Java", "HTML", "CSS", "SQL"],
   frameworks: [
     "React.js",
     "Next.js",
     "Node.js",
     "Express.js",
+    "Mongoose",
     "Tailwind CSS",
     "Redux Toolkit",
     "DaisyUI",
     "Socket.io",
   ],
-  tools: ["MongoDB", "MySQL", "Git/GitHub", "VS Code", "Appwrite", "Razorpay", "Vercel"],
+  tools: [
+    "MongoDB",
+    "MySQL",
+    "Git/GitHub",
+    "VS Code",
+    "Postman",
+    "Bruno",
+    "Appwrite",
+    "Razorpay",
+    "Vercel",
+    "Netlify",
+    "Render",
+    "OpenAI",
+    "Claude",
+    "Gemini",
+  ],
 };

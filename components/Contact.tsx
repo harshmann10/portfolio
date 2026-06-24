@@ -128,7 +128,7 @@ export default function Contact() {
                 aria-busy={isLoading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/10 hover:shadow-lg hover:shadow-blue-500/20 transition-all disabled:opacity-50 disabled:hover:scale-100 disabled:from-blue-600 disabled:to-indigo-600 dark:from-blue-500 dark:to-indigo-500 cursor-pointer"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-indigo-500/10 hover:shadow-lg hover:shadow-indigo-500/20 transition-all disabled:opacity-50 disabled:hover:scale-100 disabled:from-indigo-600 disabled:to-indigo-700 dark:from-indigo-500 dark:to-indigo-600 cursor-pointer"
               >
                 {isLoading ? (
                   <>

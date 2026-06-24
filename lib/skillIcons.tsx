@@ -16,7 +16,16 @@ import {
   SiGithub, 
   SiAppwrite, 
   SiRazorpay, 
-  SiVercel 
+  SiVercel,
+  SiTypescript,
+  SiPostman,
+  SiBruno,
+  SiNetlify,
+  SiRender,
+  SiMongoose,
+  SiOpenai,
+  SiGooglegemini,
+  SiClaude
 } from "react-icons/si";
 import { FaJava, FaDatabase, FaEdit } from "react-icons/fa";
 import { DiVisualstudio } from "react-icons/di";
@@ -26,6 +35,8 @@ export const getSkillIcon = (skill: string, size: number = 16) => {
   switch (skill) {
     case "JavaScript":
       return <SiJavascript className="text-[#F7DF1E] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "TypeScript":
+      return <SiTypescript className="text-[#3178C6] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "Java":
       return <FaJava className="text-[#007396] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "HTML":
@@ -52,6 +63,8 @@ export const getSkillIcon = (skill: string, size: number = 16) => {
       return <SiSocketdotio className="text-zinc-900 dark:text-zinc-100 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "MongoDB":
       return <SiMongodb className="text-[#47A248] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Mongoose":
+      return <SiMongoose className="text-[#880000] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "MySQL":
       return <SiMysql className="text-[#4479A1] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "Git/GitHub":
@@ -64,12 +77,26 @@ export const getSkillIcon = (skill: string, size: number = 16) => {
       );
     case "VS Code":
       return <DiVisualstudio className="text-[#007ACC] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Postman":
+      return <SiPostman className="text-[#FF6C37] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Bruno":
+      return <SiBruno className="text-[#fbcd04] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "Appwrite":
       return <SiAppwrite className="text-[#FD366E] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "Razorpay":
       return <SiRazorpay className="text-[#0A2540] dark:text-[#3399FF] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size - 1} />;
     case "Vercel":
       return <SiVercel className="text-zinc-900 dark:text-zinc-100 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Netlify":
+      return <SiNetlify className="text-[#00AD9F] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Render":
+      return <SiRender className="text-[#462AF3] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "OpenAI":
+      return <SiOpenai className="text-[#10A37F] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Claude":
+      return <SiClaude className="text-[#E0B07A] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Gemini":
+      return <SiGooglegemini className="text-[#8E75C2] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "TinyMCE":
       return <FaEdit className="text-[#007F5F] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "WebExtensions API":

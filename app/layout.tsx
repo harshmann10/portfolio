@@ -3,6 +3,8 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import ClientThemeProvider from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
+import ScrollToTop from "@/components/ScrollToTop";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
@@ -65,7 +67,9 @@ export default function RootLayout({
           >
             Skip to main content
           </a>
+          <ScrollProgressBar />
           <Navbar />
+          <ScrollToTop />
           <main id="main-content" className="mx-auto max-w-5xl px-4">
             {children}
           </main>
