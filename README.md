@@ -1,70 +1,81 @@
 # Harsh Mann — Portfolio
 
-A modern, high-performance portfolio website built with **Next.js 15**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. Designed with a focus on clean aesthetics, smooth interactions, and developer experience.
+Portfolio of a **Full-Stack AI Engineer** — production RAG systems, AI agents, and distributed MERN backends. Built with **Next.js**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 
 ## ✨ Features
 
-- **Modern Tech Stack**: Built with Next.js App Router, TypeScript, and Tailwind CSS.
-- **Dynamic Animations**: Unified "fade-in and slide-up" entry animations for all sections using `framer-motion`.
+- **Case-Study Pages**: Deep dives per flagship project at `/projects/[slug]` — problem, approach, architecture, stack & trade-offs, screenshots, and learnings. Statically generated via `generateStaticParams`.
+- **Per-Page OG Images**: Dynamic OpenGraph cards (1200×630) via the `opengraph-image.tsx` file convention and `ImageResponse` — clean previews when links are shared on LinkedIn/X.
+- **Centralized Content**: All profile, experience, project, and skills data lives in `lib/data.ts` — the UI is fully data-driven.
+- **Skill Tiers as Bento Grid**: Skills grouped architecturally (AI/Retrieval, Backend, Databases & Cloud, Frontend), not as a flat list.
 - **Advanced Navigation**:
-  - **Scroll Spy**: Automatically highlights the active section in the viewport.
-  - **Floating Pill UI**: A modern navigation indicator that slides smoothly between links.
-  - **Smooth Scrolling**: Custom implementation for lag-free, instant section navigation on all devices.
-- **Contact Form**: Fully functional contact form integrated with **Web3Forms** for serverless email delivery.
-- **Image Optimization**: Local images with static imports for automatic blur placeholders and responsive sizing.
-- **SEO Optimized**: comprehensive metadata, OpenGraph tags, and Twitter cards for better social sharing.
-- **Theming**:
-  - **Dark/Light Mode**: Seamless switching with system preference detection (`next-themes`).
-  - **Custom Scrollbar**: A sleek, high-visibility scrollbar that adapts to the theme (Cross-browser support for Firefox & WebKit).
-- **Responsive Design**: Fully responsive layout optimized for mobile, tablet, and desktop.
+  - **Scroll Spy**: Route-aware — highlights the active section on the home page only.
+  - **Floating Pill UI**: Animated navigation indicator via Framer Motion `layoutId`.
+  - **Smooth Scrolling**: Instant section navigation on all devices.
+- **Contact**: Server action + **Web3Forms** form delivery, direct social badges, and 1-click copy-email with clipboard feedback.
+- **Monospace Metadata**: `Geist Mono` for dates, badges, kickers, and technical metadata; `Geist Sans` for body copy.
+- **GitHub Activity**: Contribution calendar with a contrast-safe indigo/zinc palette (light + dark).
+- **Theming**: Dark/light mode with system detection (`next-themes`), custom theme-aware scrollbar.
+- **SEO**: Full metadata, JSON-LD `Person` schema, sitemap including case-study routes, robots.txt.
+- **Responsive**: Mobile-first layout; navbar collapses to an animated drawer.
 
 ## 🛠️ Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack, React Compiler)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide React](https://lucide.dev/)
+- **Fonts**: Geist Sans + Geist Mono (via `next/font`)
+- **Icons**: [Lucide React](https://lucide.dev/) + react-icons
 - **Forms**: [Web3Forms](https://web3forms.com/)
+- **GitHub Calendar**: react-github-calendar
 - **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
 
 ## 📂 Project Structure
 
-- `app/`: App Router pages and global layouts.
-- `components/`: Reusable UI components (Hero, Navbar, Projects, Contact, etc.).
-- `lib/data.ts`: Centralized data file for easy content updates (Profile, Experience, Projects, Skills).
-- `public/`: Static assets.
+```
+├── app/
+│   ├── page.tsx                # Home (Hero → Experience → Projects → Skills → Activity → Contact)
+│   ├── projects/[slug]/        # Case-study pages (SSG) + opengraph-image.tsx
+│   ├── resume/                 # Resume viewer page
+│   └── ...
+├── components/                 # Hero, Navbar, Projects, Skills, Contact, etc.
+├── lib/
+│   ├── data.ts                 # Profile, experience, projects + case studies, skill tiers
+│   └── skillIcons.tsx          # Skill → brand icon mapping
+├── assets/projects/            # Project screenshots (static imports)
+└── docs/                       # Resumes, notes, planning artifacts
+```
 
 ## 🚀 Run Locally
 
-1.  **Clone the repository:**
+1. **Clone the repository:**
 
     ```bash
     git clone https://github.com/harshmann10/portfolio.git
     cd portfolio
     ```
 
-2.  **Install dependencies:**
+2. **Install dependencies:**
 
     ```bash
     npm install
     ```
 
-3.  **Start the development server:**
+3. **Start the development server:**
 
     ```bash
     npm run dev
     ```
 
-4.  **Open in browser:**
-    Visit [http://localhost:3000](http://localhost:3000)
+4. **Open in browser:** [http://localhost:3000](http://localhost:3000)
 
 ## 🎨 Customization
 
-- **Content**: Update `lib/data.ts` to change your bio, experience, projects, resume and skills without touching the UI code.
-- **Theme**: The primary accent color is `indigo-600`. You can find-and-replace `indigo` in the codebase to switch to another Tailwind color (e.g., `emerald`, `rose`, `blue`).
-- **Contact Form**: Get your access key from [Web3Forms](https://web3forms.com/) and add it to `.env` as `WEB3FORMS_ACCESS_KEY=your_key_here`.
-- **Metadata**: Modify `app/layout.tsx` to update the site title, description, keywords, and SEO/OpenGraph tags.
+- **Content**: Edit `lib/data.ts` — profile, experience, projects, case studies, and skill tiers. Adding a `slug` + `caseStudy` to a project automatically generates its case-study page and OG image.
+- **Theme**: The primary accent is `indigo-600`; find-and-replace `indigo` to re-brand.
+- **Contact Form**: Add your [Web3Forms](https://web3forms.com/) key to `.env` as `WEB3FORMS_ACCESS_KEY=your_key_here`.
+- **Metadata/SEO**: `app/layout.tsx` (metadata + JSON-LD) and per-route `opengraph-image.tsx` files.
 
 ## 📄 License
 

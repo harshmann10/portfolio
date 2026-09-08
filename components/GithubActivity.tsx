@@ -3,7 +3,9 @@
 import { GitHubCalendar } from "react-github-calendar";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const emptySubscribe = () => () => { };
 
 const container = {
     hidden: { opacity: 0 },
@@ -22,12 +24,8 @@ const item = {
 
 export default function GithubActivity() {
     const { theme, systemTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+    const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
     const currentTheme = theme === "system" ? systemTheme : theme;
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     if (!mounted) {
         return (

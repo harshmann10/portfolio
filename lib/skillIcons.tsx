@@ -1,21 +1,21 @@
-import { 
-  SiJavascript, 
-  SiHtml5, 
-  SiCss, 
-  SiReact, 
-  SiNextdotjs, 
-  SiNodedotjs, 
-  SiExpress, 
-  SiTailwindcss, 
-  SiRedux, 
-  SiDaisyui, 
-  SiSocketdotio, 
-  SiMongodb, 
-  SiMysql, 
-  SiGit, 
-  SiGithub, 
-  SiAppwrite, 
-  SiRazorpay, 
+import {
+  SiJavascript,
+  SiHtml5,
+  SiCss,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiTailwindcss,
+  SiRedux,
+  SiDaisyui,
+  SiSocketdotio,
+  SiMongodb,
+  SiMysql,
+  SiGit,
+  SiGithub,
+  SiAppwrite,
+  SiRazorpay,
   SiVercel,
   SiTypescript,
   SiPostman,
@@ -25,11 +25,13 @@ import {
   SiMongoose,
   SiOpenai,
   SiGooglegemini,
-  SiClaude
+  SiClaude,
+  SiJsonwebtokens,
+  SiGooglecloud
 } from "react-icons/si";
-import { FaJava, FaDatabase, FaEdit } from "react-icons/fa";
+import { FaJava, FaDatabase, FaEdit, FaBrain, FaSearch, FaLayerGroup, FaSortAmountDown, FaAws, FaProjectDiagram, FaSearchengin } from "react-icons/fa";
 import { DiVisualstudio } from "react-icons/di";
-import { MdOutlineExtension } from "react-icons/md";
+import { MdOutlineExtension, MdOutlineApi, MdOutlineAdminPanelSettings, MdOutlineMergeType } from "react-icons/md";
 
 export const getSkillIcon = (skill: string, size: number = 16) => {
   switch (skill) {
@@ -101,6 +103,33 @@ export const getSkillIcon = (skill: string, size: number = 16) => {
       return <FaEdit className="text-[#007F5F] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "WebExtensions API":
       return <MdOutlineExtension className="text-[#F2A900] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "RAG":
+    case "RAG Systems":
+      return <FaBrain className="text-[#6366F1] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Hybrid Retrieval":
+      return <MdOutlineMergeType className="text-[#818CF8] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Vector Search":
+      return <FaSearch className="text-[#47A248] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "BM25":
+      return <FaSearchengin className="text-zinc-600 dark:text-zinc-300 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Reranking":
+      return <FaSortAmountDown className="text-[#8B5CF6] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Embeddings":
+      return <FaLayerGroup className="text-[#A855F7] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "REST APIs":
+      return <MdOutlineApi className="text-[#6366F1] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "JWT":
+      return <SiJsonwebtokens className="text-[#FB015B] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "RBAC":
+      return <MdOutlineAdminPanelSettings className="text-[#059669] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "$vectorSearch":
+      return <SiMongodb className="text-[#47A248] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Aggregation Pipelines":
+      return <FaProjectDiagram className="text-[#0D9488] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "AWS":
+      return <FaAws className="text-[#FF9900] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "GCP":
+      return <SiGooglecloud className="text-[#4285F4] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     default:
       return null;
   }

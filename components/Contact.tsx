@@ -38,6 +38,7 @@ export default function Contact() {
       if (data.success) {
         setIsSuccess(true);
         (e.target as HTMLFormElement).reset();
+        setTimeout(() => setIsSuccess(false), 4000);
       } else {
         setError(data.message || "Something went wrong. Please try again later.");
       }
@@ -64,7 +65,7 @@ export default function Contact() {
         <div className="mb-12 text-center md:text-left">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Get in Touch</h2>
           <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-            Have a question or want to discuss a project? I'm always open to new opportunities and collaborations.
+            Have a question or want to discuss a project? I&apos;m always open to new opportunities and collaborations.
           </p>
         </div>
 

@@ -42,7 +42,7 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            Available for opportunities
+            {profile.availability}
           </div>
         </motion.div>
 
@@ -63,29 +63,42 @@ export default function Hero() {
               aria-label="Download or View Resume"
               whileHover={{ scale: 1.03, y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-500/10 hover:shadow-lg hover:shadow-indigo-500/20 transition-all dark:from-indigo-500 dark:to-indigo-600 cursor-pointer"
+              className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-500/10 hover:shadow-lg hover:shadow-indigo-500/20 transition-all dark:from-indigo-500 dark:to-indigo-600 cursor-pointer w-full sm:w-auto"
             >
               <FileText className="h-4 w-4" /> Resume
             </motion.div>
           </Link>
-          {[
-            { href: profile.links.linkedin, label: "LinkedIn", icon: Linkedin },
-            { href: profile.links.github, label: "GitHub", icon: Github },
-            { href: `mailto:${profile.links.email}`, label: "Email", icon: Mail },
-          ].map((link) => (
-            <motion.a
-              key={link.label}
-              href={link.href}
-              target={link.label === "Email" ? undefined : "_blank"}
-              rel={link.label === "Email" ? undefined : "noopener noreferrer"}
-              aria-label={link.label === "Email" ? "Send Email" : `${link.label} Profile`}
-              whileHover={{ scale: 1.03, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white/80 px-5 py-2.5 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-indigo-300 hover:text-indigo-600 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-300 dark:hover:border-indigo-500 dark:hover:text-indigo-400 w-full sm:w-auto"
-            >
-              <link.icon className="h-4 w-4" /> {link.label}
-            </motion.a>
-          ))}
+          <motion.a
+            href={profile.links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
+            whileHover={{ scale: 1.03, y: -1 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white/80 px-5 py-2.5 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-indigo-300 hover:text-indigo-600 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-300 dark:hover:border-indigo-500 dark:hover:text-indigo-400 w-full sm:w-auto"
+          >
+            <Linkedin className="h-4 w-4" /> LinkedIn
+          </motion.a>
+          <motion.a
+            href={profile.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile"
+            whileHover={{ scale: 1.03, y: -1 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white/80 px-5 py-2.5 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-indigo-300 hover:text-indigo-600 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-300 dark:hover:border-indigo-500 dark:hover:text-indigo-400 w-full sm:w-auto"
+          >
+            <Github className="h-4 w-4" /> GitHub
+          </motion.a>
+          <motion.a
+            href={`mailto:${profile.links.email}`}
+            aria-label="Send Email"
+            whileHover={{ scale: 1.03, y: -1 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white/80 px-5 py-2.5 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-indigo-300 hover:text-indigo-600 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-300 dark:hover:border-indigo-500 dark:hover:text-indigo-400 w-full sm:w-auto"
+          >
+            <Mail className="h-4 w-4" /> Email
+          </motion.a>
         </motion.div>
 
         {/* Dynamic Tech Marquee */}

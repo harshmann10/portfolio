@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientThemeProvider from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
@@ -13,26 +13,33 @@ const geistSans = Geist({
   display: "swap",
 });
 
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 
 
 export const metadata: Metadata = {
-  title: "Harsh Mann | Full Stack Developer",
+  metadataBase: new URL("https://harshmann.vercel.app"),
+  title: "Harsh Mann | Full-Stack AI Engineer",
   description:
-    "I'm Harsh Mann, a Full Stack Developer specializing in building scalable web applications and high-performance REST APIs.",
-  keywords: ["Harsh Mann", "Full Stack Developer", "Portfolio", "Web Developer"],
+    "Full-Stack AI Engineer building production RAG pipelines, AI agents, and distributed backends — hybrid retrieval, vector search, and context-grounded LLM interfaces on the MERN stack.",
+  keywords: ["Harsh Mann", "Full-Stack AI Engineer", "RAG", "GenAI", "Vector Search", "Hybrid Retrieval", "MERN", "Next.js", "Portfolio"],
   authors: [{ name: "Harsh Mann" }],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://harshmann.vercel.app",
-    title: "Harsh Mann | Full Stack Developer",
-    description: "Full Stack Developer specializing in scalable web applications and high-performance REST APIs.",
+    title: "Harsh Mann | Full-Stack AI Engineer",
+    description: "Full-Stack AI Engineer building production RAG pipelines, AI agents, and distributed backends — hybrid retrieval, vector search, and context-grounded LLM interfaces on the MERN stack.",
     siteName: "Harsh Mann Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harsh Mann | Full Stack Developer",
-    description: "Full Stack Developer specializing in scalable web applications and high-performance REST APIs.",
+    title: "Harsh Mann | Full-Stack AI Engineer",
+    description: "Full-Stack AI Engineer building production RAG pipelines, AI agents, and distributed backends — hybrid retrieval, vector search, and context-grounded LLM interfaces on the MERN stack.",
   },
 };
 
@@ -43,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body className={`${geistSans.variable} font-sans bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 antialiased`}>
+      <body className={`${geistMono.variable} ${geistSans.variable} font-sans bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -52,7 +59,8 @@ export default function RootLayout({
               "@type": "Person",
               name: "Harsh Mann",
               url: "https://harshmann.vercel.app",
-              jobTitle: "Full Stack Developer",
+              jobTitle: "Full-Stack AI Engineer",
+              knowsAbout: ["RAG", "Hybrid Retrieval", "Vector Search", "BM25", "Reranking", "LLM APIs", "MERN Stack", "Node.js", "React", "MongoDB"],
               sameAs: [
                 "https://github.com/harshmann10",
                 "https://www.linkedin.com/in/harsh-mann01/"

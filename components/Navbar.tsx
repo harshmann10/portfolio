@@ -20,28 +20,32 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const effectiveActiveSection = isHomePage ? activeSection : null;
 
   // Close menu when clicking a link or resizing or pressing escape
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
-    const handleEvents = (e: KeyboardEvent | UIEvent) => {
-      if (e instanceof KeyboardEvent && e.key === "Escape") closeMenu();
-      if (e instanceof UIEvent && window.innerWidth >= 768) closeMenu();
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMenu();
     };
-    window.addEventListener("resize", handleEvents);
-    window.addEventListener("keydown", handleEvents as any);
+    const handleResize = () => {
+      if (window.innerWidth >= 768) closeMenu();
+    };
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("keydown", handleKeydown);
     return () => {
-      window.removeEventListener("resize", handleEvents);
-      window.removeEventListener("keydown", handleEvents as any);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("keydown", handleKeydown);
     };
   }, []);
 
   // Scroll Spy logic
   useEffect(() => {
+    if (!isHomePage) return;
     const options = {
       root: null,
       rootMargin: "-20% 0px -70% 0px", // Adjust these values to change trigger point
@@ -66,7 +70,7 @@ export default function Navbar() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isHomePage]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/60 bg-white/80 shadow-sm backdrop-blur-md dark:border-zinc-800/60 dark:bg-zinc-950/80">
@@ -97,7 +101,7 @@ export default function Navbar() {
           </Link>
           <ul className="hidden items-center gap-4 md:flex">
             {navItems.map((item) => {
-              const isActive = activeSection === item.href.slice(1);
+                const isActive = effectiveActiveSection === item.href.slice(1);
               return (
                 <li key={item.href}>
                   <Link
@@ -165,7 +169,7 @@ export default function Navbar() {
           >
             <div className="flex flex-col space-y-4 p-4">
               {navItems.map((item) => {
-                const isActive = activeSection === item.href.slice(1);
+              const isActive = effectiveActiveSection === item.href.slice(1);
                 return (
                   <Link
                     key={item.href}
