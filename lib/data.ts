@@ -6,6 +6,7 @@ import contextragChatDarkImg from "@/assets/projects/contextrag-chat-dark.png";
 import contextragKnowledgeBaseImg from "@/assets/projects/contextrag-knowledge-base.png";
 import contextragCitationDrawerImg from "@/assets/projects/contextrag-citation-drawer.png";
 import contextragChatLightImg from "@/assets/projects/contextrag-chat-light.png";
+import antigravityTelemetryImg from "@/assets/projects/antigravity-dashboard.png";
 import { StaticImageData } from "next/image";
 
 export type Profile = {
@@ -57,6 +58,7 @@ export type ProjectItem = {
   github?: string;
   githubBackend?: string;
   live?: string;
+  liveLabel?: string;
   image?: StaticImageData | string;
   caseStudy?: CaseStudy;
 };
@@ -163,6 +165,7 @@ export const projects: ProjectItem[] = [
     description:
       "A production-grade hybrid RAG studio: dense vector search fused with BM25 keyword retrieval, cross-encoder reranking, and an enforced citation contract so every LLM claim is traceable to a source chunk.",
     github: "https://github.com/harshmann10/ContextRAG",
+    live: "https://context-rag.vercel.app/",
     image: contextragChatDarkImg,
     caseStudy: {
       tagline:
@@ -208,11 +211,25 @@ export const projects: ProjectItem[] = [
           detail:
             "Gemma 4 (31B-IT) emits strict JSON answers with numbered evidence IDs — validated by prompt, normalizer, and renderer, so every claim maps to a retrievable source chunk.",
         },
+        {
+          title: "Offline evaluation harness",
+          detail:
+            "A 40-question golden dataset drives four ablation variants — BM25, vector, hybrid RRF, and hybrid RRF + rerank. Pure metrics plus an LLM judge score retrieval and generation quality; a committed JSON snapshot is served read-only for transparent demo benchmarks.",
+        },
       ],
       highlights: [
         "Hybrid retrieval — 2048-dim Atlas Vector Search fused with BM25 via Reciprocal Rank Fusion",
+        "100% Recall@10 across a 40-question golden set; hybrid + rerank lifts MRR to 98.5% with zero false positives",
+        "5/5 mean faithfulness & relevancy from an LLM judge, with ~95% citation precision",
         "Cohere Rerank v4.0 Pro cross-encoder prunes irrelevant context before generation",
         "Enforced citation contract with per-answer citation-match score and an interactive evidence drawer",
+      ],
+      metrics: [
+        { label: "Recall@10 · 34 answerable questions", value: "100%" },
+        { label: "MRR · hybrid RRF + rerank", value: "98.5%" },
+        { label: "Faithfulness & relevancy · 24 judged", value: "5/5" },
+        { label: "Citation precision · mean", value: "95%" },
+        { label: "False positives · 6 unanswerable", value: "0" },
       ],
       gallery: [
         {
@@ -243,6 +260,7 @@ export const projects: ProjectItem[] = [
         "Structured-output contracts turn LLMs from plausible guessers into verifiable systems — validation belongs at every layer, not just the prompt.",
         "RRF + cross-encoder reranking is a pragmatic default: cheap recall from two channels, then expensive precision applied to a small candidate set.",
         "Production hardening matters as much as the pipeline — security headers, rate limiting, gzip, centralized retries with backoff, and soft deletes across the knowledge layer.",
+        "A golden set with ablation variants turns 'the RAG works' into evidence: hybrid + rerank won on precision while BM25 stayed roughly 10x faster, so the production default is a measured tradeoff, not a reflex.",
       ],
     },
   },
@@ -359,9 +377,10 @@ export const projects: ProjectItem[] = [
     featured: true,
     tech: ["JavaScript", "WebExtensions API", "HTML", "CSS"],
     description:
-      "A browser extension adding an auto-generated, drag-and-drop Table of Contents sidebar to ChatGPT, Claude, Gemini, Perplexity, and Grok — used by 500+ people across three extension stores.",
+      "A browser extension adding an auto-generated, drag-and-drop Table of Contents sidebar to ChatGPT, Claude, Gemini, Perplexity, and Grok — used by 600+ people across three extension stores.",
     github: "https://github.com/harshmann10/AI-Chat-TOC",
     live: "https://chromewebstore.google.com/detail/ai-chat-toc/ainbhafdpkbgbkcomkhkilokelolnnpn",
+    liveLabel: "Chrome Web Store",
     image: aiTocImg,
     caseStudy: {
       tagline:
@@ -416,7 +435,7 @@ export const projects: ProjectItem[] = [
         },
       ],
       highlights: [
-        "500+ active users across the Chrome, Edge, and Firefox add-on stores",
+        "600+ active users across the Chrome Web Store, Firefox, and Edge",
         "Live TOC across ChatGPT, Gemini, Perplexity, Claude, and Grok — with search, answer previews, and markdown export",
         "Near-zero-lag updates via 500ms throttled DOM observation with idle safety checks",
       ],
@@ -431,6 +450,116 @@ export const projects: ProjectItem[] = [
         "Shipping to real users on three extension stores teaches defensive engineering — provider DOMs change without notice, so the parser must fail soft.",
         "Throttling and idle checks turned a laggy prototype into something invisible — the best performance work is the kind users never notice.",
         "Distribution is a feature: store listings, reviews, and versioned releases are part of the product, not an afterthought.",
+      ],
+    },
+  },
+  {
+    name: "Antigravity Telemetry",
+    slug: "antigravity-telemetry",
+    featured: true,
+    tech: [
+      "JavaScript",
+      "VS Code",
+      "WebExtensions API",
+      "SQLite",
+      "Protobuf",
+      "Tailwind CSS",
+      "SVG Charts",
+    ],
+    description:
+      "A zero-dependency VS Code extension that turns Antigravity's local telemetry into a live context/token monitor and visual observability dashboard — published on the VS Marketplace and Open VSX, with 200+ installs and 2k+ downloads.",
+    github: "https://github.com/harshmann10/Antigravity-Telemetry",
+    live: "https://marketplace.visualstudio.com/items?itemName=HarshMann.antigravity-telemetry",
+    liveLabel: "Marketplace",
+    image: antigravityTelemetryImg,
+    caseStudy: {
+      tagline:
+        "Real-time LLM context and token intelligence for Antigravity — fully local, zero dependencies, and safe storage hygiene.",
+      role: "Solo build and published extension — Node.js built-ins + VS Code Extension API, local SQLite and protobuf decoding, no external packages.",
+      problem:
+        "Antigravity doesn't show how close a session is to its 256k working ceiling until compaction abruptly cuts history. Its native chat deletion often leaves 20–80 MB of orphaned databases, transcripts, and media behind, background subagents clutter chat lists with generic titles, and telemetry lives in separate stores across the IDE, editor extension, and CLI. Most observability tools also send data off-machine or burn model tokens.",
+      approach:
+        "Read everything locally — SQLite catalogs and protobuf trajectory records — and surface it in a live status bar plus a webview dashboard. Multi-root discovery merges IDE, editor, and CLI sessions behind an anti-hijacking priority hierarchy. Deletion wipes all seven storage layers with Windows Recycle Bin protection by default, and every path is verified gone before the catalog row is purged. A disk-based cache keeps restarts at ~50 ms with zero bytes of network traffic over Remote SSH.",
+      architecture: [
+        {
+          title: "Zero-dependency telemetry engine",
+          detail:
+            "Pure Node.js built-ins decode binary protobuf fields and query Antigravity's SQLite stores directly. Zero npm packages, zero network requests, zero model tokens — every number is read from disk.",
+        },
+        {
+          title: "256k-token context intelligence",
+          detail:
+            "A live status bar item shows the active chat, context tokens, fill % against the calibrated 256,000-token ceiling, and cache hit rate — with proactive compaction notices and a rich hover breakdown.",
+        },
+        {
+          title: "Visual observability dashboard",
+          detail:
+            "A side-by-side webview with four KPI cards, a dual-layer SVG timeline (context curve, clamped cached area, compaction markers), tri-state context health, segmented allocation, and a searchable files-touched drawer.",
+        },
+        {
+          title: "Subagent role decoding",
+          detail:
+            "Decodes internal protobuf task records into real roles (e.g. Icon Designer, Research Assistant) with nested collapsible drawers, parent-child cost rollups, and breadcrumb links back to parent sessions.",
+        },
+        {
+          title: "Zero-residue deletion",
+          detail:
+            "Wipes all seven storage layers — DB/WAL/SHM files, brain transcripts, annotations, browser recordings, implicit data, and the catalog row — with Recycle Bin by default, locked-file detection, and post-delete verification before any row is removed.",
+        },
+        {
+          title: "Multi-root session discovery",
+          detail:
+            "Host-aware detection unifies the standalone IDE, VS Code/VSCodium/Cursor/Windsurf extension, and antigravity-cli sessions, with IDE/CLI origin badges, workspace scoping, and a 4-tier priority that stops background CLI jobs hijacking the active editor chat.",
+        },
+        {
+          title: "Remote-friendly performance",
+          detail:
+            "Persistent caches live in globalStorageUri (not globalState), so Remote SSH syncs 0 bytes; inactive timelines are stripped before webview IPC (~88–95% smaller payloads), with visibility guards and signature dirty-checking on the 10-second poll.",
+        },
+      ],
+      stackDecisions: [
+        {
+          title: "Zero dependencies / zero network",
+          detail:
+            "Only Node.js built-ins and the VS Code API — a wrong number is a parser bug, never a connectivity issue. The extension stays installable anywhere, offline, with no telemetry of its own.",
+        },
+        {
+          title: "Disk cache over globalState",
+          detail:
+            "Large caches in globalState would stream megabytes over the Remote SSH RPC tunnel on every tick. File-based storage in globalStorageUri keeps warm starts at ~50 ms and heartbeats at ~6 ms with zero network bytes.",
+        },
+        {
+          title: "Nonce CSP-safe webview",
+          detail:
+            "A strict script nonce means no inline handlers — all events are bound by element ID in bindEvents(). The precompiled Tailwind stylesheet is committed, so the webview needs no build step at runtime.",
+        },
+      ],
+      highlights: [
+        "200+ VS Marketplace installs and 2k+ Open VSX downloads",
+        "Live 256k-token context monitor with a dual-layer SVG timeline and compaction warnings",
+        "Zero-residue cleanup across all 7 storage layers, with Recycle Bin protection by default",
+        "Subagent role decoding with nested drawers and parent-child cost rollups",
+        "Unified IDE, editor, and CLI sessions with ~50 ms warm starts and 0-byte Remote SSH syncs",
+      ],
+      metrics: [
+        { label: "VS Marketplace installs", value: "200+" },
+        { label: "Open VSX downloads", value: "2k+" },
+        { label: "Calibrated token ceiling", value: "256k" },
+        { label: "Warm startup", value: "~50 ms" },
+        { label: "npm dependencies / network calls", value: "0" },
+      ],
+      gallery: [
+        {
+          src: antigravityTelemetryImg,
+          alt: "Antigravity Telemetry visual observability dashboard",
+          caption:
+            "The live dashboard — KPI cards, context timeline, health diagnostics, and conversation list.",
+        },
+      ],
+      learnings: [
+        "Local-only tooling earns trust: decoding bytes on disk instead of calling an API makes the extension fast, private, and free to run in air-gapped setups.",
+        "Remote SSH changes the performance budget — IPC payload size and where cache bytes live matter more than raw CPU time, so decimation and file-backed state were first-class design constraints.",
+        "Shipping to two registries is a product surface: versioned changelogs, marketplace listings, and a packaged .vsix are part of the work, not an afterthought.",
       ],
     },
   },

@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import iconImg from "@/app/icon.png";
+import { getScrollBehavior } from "@/lib/scroll";
 
 const navItems = [
   { href: "#hero", label: "Home" },
@@ -82,7 +83,7 @@ export default function Navbar() {
             onClick={(e) => {
               if (isHomePage) {
                 e.preventDefault();
-                document.querySelector("#hero")?.scrollIntoView({ behavior: "smooth" });
+                document.querySelector("#hero")?.scrollIntoView({ behavior: getScrollBehavior() });
                 setActiveSection("hero");
               }
             }}
@@ -106,11 +107,11 @@ export default function Navbar() {
                 <li key={item.href}>
                   <Link
                     href={isHomePage ? item.href : `/${item.href}`}
-                    aria-current={isActive ? "page" : undefined}
+                    aria-current={isActive ? "location" : undefined}
                     onClick={(e) => {
                       if (isHomePage) {
                         e.preventDefault();
-                        document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
+                        document.querySelector(item.href)?.scrollIntoView({ behavior: getScrollBehavior() });
                         setActiveSection(item.href.slice(1));
                       }
                     }}
@@ -182,7 +183,7 @@ export default function Navbar() {
                         setTimeout(() => {
                           const element = document.querySelector(target);
                           if (element) {
-                            element.scrollIntoView({ behavior: "smooth" });
+                            element.scrollIntoView({ behavior: getScrollBehavior() });
                             setActiveSection(target.slice(1));
                           }
                         }, 150);

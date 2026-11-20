@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
+import { getScrollBehavior } from "@/lib/scroll";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,7 +24,7 @@ export default function ScrollToTop() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: getScrollBehavior(),
     });
   };
 

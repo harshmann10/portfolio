@@ -101,9 +101,9 @@ function FeaturedProject({ p, idx }: { p: ProjectItem; idx: number }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={ghostButton}
-                aria-label="View live demo"
+                aria-label={p.liveLabel ? `View ${p.liveLabel}` : "View live demo"}
               >
-                <ExternalLink className="h-4 w-4" /> Live Demo
+                <ExternalLink className="h-4 w-4" /> {p.liveLabel ?? "Live Demo"}
               </a>
             )}
           </div>
@@ -163,7 +163,7 @@ function CompactProjectCard({ p }: { p: ProjectItem }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-500 transition-colors hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400"
-                aria-label="View live demo"
+                aria-label={p.liveLabel ? `View ${p.liveLabel}` : "View live demo"}
               >
                 <ExternalLink className="h-5 w-5" />
               </a>

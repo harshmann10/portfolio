@@ -29,7 +29,7 @@ import {
   SiJsonwebtokens,
   SiGooglecloud
 } from "react-icons/si";
-import { FaJava, FaDatabase, FaEdit, FaBrain, FaSearch, FaLayerGroup, FaSortAmountDown, FaAws, FaProjectDiagram, FaSearchengin } from "react-icons/fa";
+import { FaJava, FaDatabase, FaEdit, FaBrain, FaSearch, FaLayerGroup, FaSortAmountDown, FaAws, FaProjectDiagram, FaSearchengin, FaChartLine } from "react-icons/fa";
 import { DiVisualstudio } from "react-icons/di";
 import { MdOutlineExtension, MdOutlineApi, MdOutlineAdminPanelSettings, MdOutlineMergeType } from "react-icons/md";
 
@@ -103,6 +103,12 @@ export const getSkillIcon = (skill: string, size: number = 16) => {
       return <FaEdit className="text-[#007F5F] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "WebExtensions API":
       return <MdOutlineExtension className="text-[#F2A900] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "SQLite":
+      return <FaDatabase className="text-[#003B57] dark:text-[#5B9BC4] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "Protobuf":
+      return <FaProjectDiagram className="text-[#5E5CE6] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
+    case "SVG Charts":
+      return <FaChartLine className="text-[#06B6D4] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;
     case "RAG":
     case "RAG Systems":
       return <FaBrain className="text-[#6366F1] flex-shrink-0 transition-transform duration-300 group-hover:scale-110" size={size} />;

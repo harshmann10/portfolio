@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { Analytics } from "@vercel/analytics/next"
+import { profile } from "@/lib/data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +20,38 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-
+// Derived from the same content source as the UI so name/role/email never drift.
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: "https://harshmann.vercel.app",
+  email: profile.links.email,
+  jobTitle: profile.role,
+  knowsAbout: [
+    "RAG",
+    "Hybrid Retrieval",
+    "Vector Search",
+    "BM25",
+    "Reranking",
+    "LLM APIs",
+    "MERN Stack",
+    "Node.js",
+    "React",
+    "MongoDB",
+    "TypeScript",
+    "SQLite",
+    "Protobuf",
+    "VS Code Extensions",
+  ],
+  sameAs: [
+    profile.links.github,
+    profile.links.linkedin,
+    "https://github.com/harshmann10/Antigravity-Telemetry",
+    "https://marketplace.visualstudio.com/items?itemName=HarshMann.antigravity-telemetry",
+    "https://open-vsx.org/extension/HarshMann/antigravity-telemetry",
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://harshmann.vercel.app"),
@@ -54,18 +86,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Harsh Mann",
-              url: "https://harshmann.vercel.app",
-              jobTitle: "Full-Stack AI Engineer",
-              knowsAbout: ["RAG", "Hybrid Retrieval", "Vector Search", "BM25", "Reranking", "LLM APIs", "MERN Stack", "Node.js", "React", "MongoDB"],
-              sameAs: [
-                "https://github.com/harshmann10",
-                "https://www.linkedin.com/in/harsh-mann01/"
-              ]
-            })
+            __html: JSON.stringify(personSchema)
           }}
         />
         <ClientThemeProvider>

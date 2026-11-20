@@ -12,7 +12,7 @@ Portfolio of a **Full-Stack AI Engineer** — production RAG systems, AI agents,
   - **Scroll Spy**: Route-aware — highlights the active section on the home page only.
   - **Floating Pill UI**: Animated navigation indicator via Framer Motion `layoutId`.
   - **Smooth Scrolling**: Instant section navigation on all devices.
-- **Contact**: Server action + **Web3Forms** form delivery, direct social badges, and 1-click copy-email with clipboard feedback.
+- **Contact**: Server action + **Web3Forms** form delivery with server-side validation and a honeypot, plus direct email and social links.
 - **Monospace Metadata**: `Geist Mono` for dates, badges, kickers, and technical metadata; `Geist Sans` for body copy.
 - **GitHub Activity**: Contribution calendar with a contrast-safe indigo/zinc palette (light + dark).
 - **Theming**: Dark/light mode with system detection (`next-themes`), custom theme-aware scrollbar.
@@ -43,8 +43,7 @@ Portfolio of a **Full-Stack AI Engineer** — production RAG systems, AI agents,
 ├── lib/
 │   ├── data.ts                 # Profile, experience, projects + case studies, skill tiers
 │   └── skillIcons.tsx          # Skill → brand icon mapping
-├── assets/projects/            # Project screenshots (static imports)
-└── docs/                       # Resumes, notes, planning artifacts
+└── assets/projects/            # Project screenshots (static imports)
 ```
 
 ## 🚀 Run Locally
